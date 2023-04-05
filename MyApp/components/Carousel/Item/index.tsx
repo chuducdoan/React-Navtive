@@ -1,4 +1,6 @@
-import {Dimensions, Image, ImageBackground, Text, View} from 'react-native';
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable prettier/prettier */
+import {Image, Text, View} from 'react-native';
 import {styles} from './style';
 
 interface Props {
@@ -8,10 +10,14 @@ interface Props {
 const Item = ({item}: Props) => {
   return (
     <View style={styles.container}>
-      <Image source={item.url} style={styles.bgImage} />
+      <Image source={item.url} resizeMode="cover" style={styles.bgImage} />
       <View style={styles.wrapText}>
         <Text style={styles.title}>{item.title}</Text>
-        <Text>{item.text}</Text>
+        {item?.subImg && <Image source={item.subImg} />}
+        <Text
+          style={[styles.subText, !item.subImg ? styles.mt29 : styles.subText]}>
+          {item.text}
+        </Text>
       </View>
     </View>
   );

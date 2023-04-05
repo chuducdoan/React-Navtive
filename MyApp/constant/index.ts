@@ -1,5 +1,6 @@
 export const fontSize = {
   size30: 30,
+  size15: 15,
   size14: 14,
 };
 
@@ -11,6 +12,7 @@ export const color = {
   bgWhite: '#fff',
   bgLight: '#f4f5f9',
   bgGray: '#f5f5f5',
+  bgGray2: '#dcdcdc',
 
   textGray: '#868889',
   textBlack: '#000',
