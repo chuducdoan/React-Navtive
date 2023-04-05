@@ -13,7 +13,6 @@
 import React, {type PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -69,7 +68,7 @@ const App = () => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View style={styles.container}>
-        <Carousel />
+        <Carousel isBanner />
       </View>
     </SafeAreaView>
   );
@@ -78,22 +77,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
 

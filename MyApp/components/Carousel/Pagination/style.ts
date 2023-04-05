@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
-import {color} from '../../../constant';
+import {color, fontSize, fontWeight} from '../../../constant';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,6 +8,20 @@ export const styles = StyleSheet.create({
     bottom: 148,
     justifyContent: 'center',
     width: '100%',
+    flexDirection: 'row',
+  },
+
+  containerBanner: {
+    position: 'absolute',
+    bottom: 75,
+    justifyContent: 'space-between',
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 36,
+  },
+
+  content: {
     flexDirection: 'row',
   },
 
@@ -21,5 +35,11 @@ export const styles = StyleSheet.create({
 
   active: {
     backgroundColor: color.primaryDark,
+  },
+
+  textPagination: {
+    fontSize: fontSize.size15,
+    color: color.textHighlight,
+    fontWeight: fontWeight.wight500,
   },
 });

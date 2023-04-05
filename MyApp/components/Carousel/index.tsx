@@ -1,16 +1,43 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import {FlatList, View} from 'react-native';
+import {Dimensions, FlatList, Text, View} from 'react-native';
 import Item from './Item';
 import {styles} from './style';
 import Pagination from './Pagination';
 import {useRef, useState} from 'react';
+import Button from '../Button';
+import ItemSecondary from './ItemSecondary';
 
 const AppleImage = require('../../assets/images/apple.png');
 const EggImage = require('../../assets/images/egg.png');
 const LemonImage = require('../../assets/images/lemon.png');
 const FruitcartImage = require('../../assets/images/fruitcart.png');
 const BigCatImage = require('../../assets/images/bigCart.png');
+
+const GroceriesImage = require('../../assets/images/Groceries.png');
+const PassionateImage = require('../../assets/images/Passionate.png');
+const DeliveryImage = require('../../assets/images/Delivery.png');
+
+const dataList2 = [
+  {
+    id: '1',
+    title: 'Buy Grocery',
+    url: GroceriesImage,
+    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy',
+  },
+  {
+    id: '2',
+    title: 'Fast Delivery',
+    url: DeliveryImage,
+    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy',
+  },
+  {
+    id: '3',
+    title: 'Enjoy Quality Food',
+    url: PassionateImage,
+    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy',
+  },
+];
 
 const dataList = [
   {
@@ -40,24 +67,23 @@ const dataList = [
   },
 ];
 
-const Carousel = () => {
+const {width} = Dimensions.get('window');
+
+interface Props {
+  isBanner?: boolean;
+}
+
+const Carousel = ({isBanner}: Props) => {
   const [index, setIndex] = useState<number>(0);
 
   const renderItem = ({item}: any) => {
-    return <Item item={item} />;
+    return isBanner ? <ItemSecondary item={item} /> : <Item item={item} />;
   };
-
-  const handleOnViewableItemsChanged = useRef(
-    ({viewableItems, changed}: any) => {
-      console.log('index: ', changed);
-      setIndex(viewableItems[0].index);
-    },
-  ).current;
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={dataList}
+        data={isBanner ? dataList2 : dataList}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         horizontal
@@ -65,9 +91,21 @@ const Carousel = () => {
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
         style={styles.content}
-        onViewableItemsChanged={handleOnViewableItemsChanged}
+        onScroll={e => {
+          const x = e.nativeEvent.contentOffset.x;
+          setIndex(Math.round(x / width));
+        }}
       />
-      <Pagination data={dataList} current={index} />
+      <Pagination
+        data={!isBanner ? dataList : dataList2}
+        current={index}
+        isBanner={isBanner}
+      />
+      {!isBanner && (
+        <View style={styles.wrapButton}>
+          <Button title={'Get started'} />
+        </View>
+      )}
     </View>
   );
 };

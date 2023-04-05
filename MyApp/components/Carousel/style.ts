@@ -9,4 +9,11 @@ export const styles = StyleSheet.create({
   content: {
     height: '100%',
   },
+  wrapButton: {
+    position: 'absolute',
+    bottom: 60,
+    left: 0,
+    width: '100%',
+    paddingHorizontal: 17,
+  },
 });

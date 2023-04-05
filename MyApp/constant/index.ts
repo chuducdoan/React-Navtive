@@ -1,11 +1,14 @@
 export const fontSize = {
   size30: 30,
+  size25: 25,
   size15: 15,
   size14: 14,
 };
 
 export const fontWeight = {
   wight700: '700',
+  wight600: '600',
+  wight500: '500',
 };
 
 export const color = {
@@ -16,6 +19,7 @@ export const color = {
 
   textGray: '#868889',
   textBlack: '#000',
+  textHighlight: '#c4c4c4',
 
   textLink: '#407EC7',
 
