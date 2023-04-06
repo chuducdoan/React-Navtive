@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
-    elevation: 10,
-    shadowColor: 'rgba(108, 197, 29, 0.25)',
+    elevation: 18,
+    shadowColor: '#6CC51D',
   },
 
   text: {

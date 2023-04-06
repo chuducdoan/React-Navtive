@@ -9,6 +9,7 @@ export const fontWeight = {
   wight700: '700',
   wight600: '600',
   wight500: '500',
+  wight300: '300',
 };
 
 export const color = {
