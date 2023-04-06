@@ -42,4 +42,8 @@ export const styles = StyleSheet.create({
     color: color.textHighlight,
     fontWeight: fontWeight.wight500,
   },
+
+  next: {
+    color: color.primaryDark,
+  },
 });

@@ -68,7 +68,7 @@ const App = () => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View style={styles.container}>
-        <Carousel isBanner />
+        <Carousel isBanner onSkip={() => console.log('skip 123')} />
       </View>
     </SafeAreaView>
   );

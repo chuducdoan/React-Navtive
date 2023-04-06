@@ -10,13 +10,14 @@ interface Props {
   current: number;
   isBanner?: boolean;
   onNextItem?: any;
+  onSkip?: any;
 }
 
-const Pagination = ({data, current, isBanner, onNextItem}: Props) => {
+const Pagination = ({data, current, isBanner, onNextItem, onSkip}: Props) => {
   return (
     <View style={!isBanner ? styles.container : styles.containerBanner}>
       {isBanner && (
-        <Pressable>
+        <Pressable onPress={onSkip}>
           <Text style={styles.textPagination}>Skip</Text>
         </Pressable>
       )}
@@ -30,7 +31,7 @@ const Pagination = ({data, current, isBanner, onNextItem}: Props) => {
       </View>
       {isBanner && (
         <Pressable onPress={onNextItem}>
-          <Text style={styles.textPagination}>Next</Text>
+          <Text style={[styles.textPagination, styles.next]}>Next</Text>
         </Pressable>
       )}
     </View>

@@ -72,9 +72,11 @@ const {width} = Dimensions.get('window');
 
 interface Props {
   isBanner?: boolean;
+  onSkip?: any;
+  onStart?: any;
 }
 
-const Carousel = ({isBanner}: Props) => {
+const Carousel = ({isBanner, onSkip, onStart}: Props) => {
   const [index, setIndex] = useState<number>(0);
   const [initIndex, setInitIndex] = useState<number>(0);
   const ref = useRef<FlatList>(null);
@@ -91,8 +93,8 @@ const Carousel = ({isBanner}: Props) => {
   };
 
   const handleOnNextItem = () => {
-    console.log(initIndex);
-    if (initIndex > dataList2.length - 1) {
+    if (initIndex >= dataList2.length - 1) {
+      onSkip?.();
       return;
     }
     setInitIndex(initIndex + 1);
@@ -115,16 +117,18 @@ const Carousel = ({isBanner}: Props) => {
           setIndex(Math.round(x / width));
         }}
         initialScrollIndex={initIndex}
+        scrollEnabled={!isBanner}
       />
       <Pagination
         data={!isBanner ? dataList : dataList2}
         current={index}
         isBanner={isBanner}
         onNextItem={handleOnNextItem}
+        onSkip={onSkip}
       />
       {!isBanner && (
         <View style={styles.wrapButton}>
-          <Button title={'Get started'} />
+          <Button title={'Get started'} onPress={onStart} />
         </View>
       )}
     </View>
