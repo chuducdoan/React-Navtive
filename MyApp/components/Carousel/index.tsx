@@ -4,9 +4,10 @@ import {Dimensions, FlatList, Text, View} from 'react-native';
 import Item from './Item';
 import {styles} from './style';
 import Pagination from './Pagination';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Button from '../Button';
 import ItemSecondary from './ItemSecondary';
+import React from 'react';
 
 const AppleImage = require('../../assets/images/apple.png');
 const EggImage = require('../../assets/images/egg.png');
@@ -75,14 +76,32 @@ interface Props {
 
 const Carousel = ({isBanner}: Props) => {
   const [index, setIndex] = useState<number>(0);
+  const [initIndex, setInitIndex] = useState<number>(0);
+  const ref = useRef<FlatList>(null);
+
+  useEffect(() => {
+    ref.current?.scrollToIndex({
+      index: initIndex,
+      animated: true,
+    });
+  }, [initIndex]);
 
   const renderItem = ({item}: any) => {
     return isBanner ? <ItemSecondary item={item} /> : <Item item={item} />;
   };
 
+  const handleOnNextItem = () => {
+    console.log(initIndex);
+    if (initIndex > dataList2.length - 1) {
+      return;
+    }
+    setInitIndex(initIndex + 1);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
+        ref={ref}
         data={isBanner ? dataList2 : dataList}
         renderItem={renderItem}
         keyExtractor={item => item.id}
@@ -95,11 +114,13 @@ const Carousel = ({isBanner}: Props) => {
           const x = e.nativeEvent.contentOffset.x;
           setIndex(Math.round(x / width));
         }}
+        initialScrollIndex={initIndex}
       />
       <Pagination
         data={!isBanner ? dataList : dataList2}
         current={index}
         isBanner={isBanner}
+        onNextItem={handleOnNextItem}
       />
       {!isBanner && (
         <View style={styles.wrapButton}>
