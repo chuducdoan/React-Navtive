@@ -1,29 +1,50 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, Image, Pressable} from 'react-native';
+import AuthLayout from '../../layouts/auth';
+import {Text, View} from 'react-native';
 import {styles} from './style';
 import {Button} from '../../components';
+import {useNavigation} from '@react-navigation/native';
 
 const WelcomeImage = require('../../assets/images/welcome.png');
+const GoogleIcon = require('../../assets/images/icons/google.png');
+const UserIcon = require('../../assets/images/icons/user.png');
 
 const Welcome = () => {
-  return (
-    <View style={styles.container}>
-      <Image source={WelcomeImage} />
-      <View style={styles.wrapContent}>
+  const navigation = useNavigation();
+
+  const renderContent = () => {
+    return (
+      <>
         <Text style={styles.mainText}>Welcome</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy
         </Text>
-        <Button title={'Create an account'} />
-        <View style={styles.footer}>
-          <Text style={styles.textFooter}>Already have an account ?</Text>
-          <Pressable>
-            <Text style={styles.textLogin}>Login</Text>
-          </Pressable>
+        <View style={styles.wrapBtn}>
+          <Button
+            title={'Create an account'}
+            icon={GoogleIcon}
+            background={'#fff'}
+          />
         </View>
-      </View>
-    </View>
+        <Button title={'Create an account'} icon={UserIcon} />
+      </>
+    );
+  };
+
+  const handleOnChangePage = () => {
+    navigation.navigate('Login');
+  };
+
+  return (
+    <AuthLayout
+      bgImage={WelcomeImage}
+      descFooter={'Already have an account ?'}
+      mainFooter={'Login'}
+      mainContent={renderContent()}
+      onChangePage={handleOnChangePage}
+    />
   );
 };
 

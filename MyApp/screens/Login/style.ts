@@ -16,7 +16,23 @@ export const styles = StyleSheet.create({
     color: color.textGray,
     paddingRight: 62,
   },
-  wrapBtn: {
-    marginBottom: 12,
+  textInput: {
+    marginBottom: 5,
+  },
+  forgotPassword: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 17,
+  },
+  textForgotPass: {
+    fontSize: fontSize.size15,
+    fontWeight: fontWeight.wight500,
+    color: color.textLink,
+  },
+  remember: {
+    fontSize: fontSize.size15,
+    fontWeight: fontWeight.wight500,
+    color: color.textGray,
   },
 });

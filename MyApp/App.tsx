@@ -24,6 +24,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import DefaultScreen from './screens/DefaultScreen';
 import Splash from './screens/Splash';
 import Welcome from './screens/Welcome';
+import Login from './screens/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ const App = () => {
         <Stack.Screen name="Default" component={DefaultScreen} />
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );
