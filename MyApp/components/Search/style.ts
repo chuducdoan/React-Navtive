@@ -5,28 +5,26 @@ import {color} from './../../constant/index';
 
 export const styles = StyleSheet.create({
   container: {
-    position: 'relative',
-    borderRadius: 5,
-    height: 60,
+    height: 50,
     flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 5,
+    backgroundColor: color.bgLight,
+    position: 'relative',
+    paddingLeft: 21,
+    paddingRight: 16,
+    marginBottom: 10,
   },
 
   textInput: {
-    color: color.textGray,
     fontSize: fontSize.size15,
-    fontWeight: '500',
-    height: '100%',
     flex: 1,
-    paddingRight: 16,
+    paddingLeft: 19,
+    color: color.textGray,
   },
   icon: {
-    alignItems: 'center',
-    width: 72,
-    justifyContent: 'center',
-  },
-  iconBack: {
-    alignItems: 'center',
-    width: 70,
-    justifyContent: 'center',
+    position: 'absolute',
+    top: 19,
+    left: 33,
   },
 });

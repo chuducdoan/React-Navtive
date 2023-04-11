@@ -23,7 +23,7 @@ const Welcome = () => {
         </Text>
         <View style={styles.wrapBtn}>
           <Button
-            title={'Create an account'}
+            title={'Continue with google'}
             icon={GoogleIcon}
             background={'#fff'}
           />

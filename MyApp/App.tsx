@@ -10,21 +10,17 @@
  * @format
  */
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {Header} from './components';
 import DefaultScreen from './screens/DefaultScreen';
+import Login from './screens/Login';
+import Root from './screens/Root';
+import SignUp from './screens/SignUp';
 import Splash from './screens/Splash';
 import Welcome from './screens/Welcome';
-import Login from './screens/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,11 +29,44 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Default"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Default" component={DefaultScreen} />
-        <Stack.Screen name="Splash" component={Splash} />
-        <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Login" component={Login} />
+        screenOptions={{
+          header: props => <Header {...props} />,
+          headerTransparent: true,
+        }}>
+        <Stack.Screen
+          name="Default"
+          component={DefaultScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen
+          name="Root"
+          component={Root}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

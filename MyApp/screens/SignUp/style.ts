@@ -19,26 +19,7 @@ export const styles = StyleSheet.create({
   textInput: {
     marginBottom: 5,
   },
-  forgotPassword: {
-    marginTop: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 17,
-  },
-  textForgotPass: {
-    fontSize: fontSize.size15,
-    fontWeight: fontWeight.wight500,
-    color: color.textLink,
-  },
-  rememberWrap: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingLeft: 9,
-  },
-  remember: {
-    fontSize: fontSize.size15,
-    fontWeight: fontWeight.wight500,
-    color: color.textGray,
-    marginLeft: 9,
+  wrapBtn: {
+    marginTop: 12,
   },
 });
