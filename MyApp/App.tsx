@@ -14,13 +14,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Header} from './components';
+import {Header, HeaderSecondary} from './components';
 import DefaultScreen from './screens/DefaultScreen';
 import Login from './screens/Login';
 import Root from './screens/Root';
 import SignUp from './screens/SignUp';
 import Splash from './screens/Splash';
 import Welcome from './screens/Welcome';
+import Detail from './screens/Detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,16 +68,17 @@ const App = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="Detail"
+          component={Detail}
+          options={{
+            title: '',
+            header: props => <HeaderSecondary {...props} />,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    fontFamily: 'Poppins-Regular',
-  },
-});
 
 export default App;

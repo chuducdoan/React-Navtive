@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
-import {fontSize, fontWeight} from '../../constant';
+import {fontSize} from '../../constant';
 import {color} from './../../constant/index';
 
 export const styles = StyleSheet.create({
@@ -22,6 +22,11 @@ export const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     top: 19,
+  },
+  first: {
     left: 33,
+  },
+  last: {
+    right: 19,
   },
 });

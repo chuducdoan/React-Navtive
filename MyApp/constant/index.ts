@@ -1,9 +1,12 @@
 export const fontSize = {
   size30: 30,
   size25: 25,
+  size20: 20,
   size18: 18,
   size15: 15,
   size14: 14,
+  size12: 12,
+  size10: 10,
 };
 
 export const fontWeight = {
@@ -30,4 +33,6 @@ export const color = {
   primary: '#AEDC81',
   primaryDark: '#6CC51D',
   primaryLight: '#EBFFD7',
+
+  textGreen: '#28B446',
 };

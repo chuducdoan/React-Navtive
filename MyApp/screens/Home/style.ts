@@ -8,6 +8,16 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     padding: 17,
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
+  },
+  productWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingBottom: 14,
+  },
+  productItem: {
+    width: '47%',
+    marginBottom: 20,
   },
 });

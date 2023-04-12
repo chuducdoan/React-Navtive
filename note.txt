@@ -1,1 +1,2 @@
 - Khi loi icon material ko load dc thi chay: https://stackoverflow.com/questions/38878852/react-native-vector-icons-wont-show-in-android-device
+- get param: const name = useNavigationParam('name');

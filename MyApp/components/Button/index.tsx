@@ -11,10 +11,11 @@ interface Props {
   onPress?: any;
   icon?: any;
   background?: any;
+  last?: boolean;
 }
 
 const Button = (props: Props) => {
-  const {title, onPress, icon, background} = props;
+  const {title, onPress, icon, background, last} = props;
   return (
     <Pressable onPress={onPress}>
       <LinearGradient
@@ -22,7 +23,12 @@ const Button = (props: Props) => {
         style={styles.container}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}>
-        {icon && <Image source={icon} style={styles.icon} />}
+        {icon && (
+          <Image
+            source={icon}
+            style={[styles.icon, last ? styles.last : styles.first]}
+          />
+        )}
         <Text style={[styles.text, background ? {color: '#000'} : {}]}>
           {title}
         </Text>

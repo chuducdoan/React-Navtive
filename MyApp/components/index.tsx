@@ -6,3 +6,6 @@ export {default as Header} from './Header';
 export {default as Banner} from './Banner';
 export {default as Search} from './Search';
 export {default as Breadscrum} from './Breadscrum';
+export {default as Category} from './Category';
+export {default as ItemProduct} from './ItemProduct';
+export {default as HeaderSecondary} from './HeaderSecondary';
