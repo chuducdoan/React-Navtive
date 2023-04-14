@@ -9,3 +9,4 @@ export {default as Breadscrum} from './Breadscrum';
 export {default as Category} from './Category';
 export {default as ItemProduct} from './ItemProduct';
 export {default as HeaderSecondary} from './HeaderSecondary';
+export {default as HeaderThirt} from './HeaderThirt';

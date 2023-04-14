@@ -75,6 +75,10 @@ const Home = () => {
     });
   };
 
+  const handleOnChangePageCategory = () => {
+    navigation.navigate('Category');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
@@ -88,7 +92,10 @@ const Home = () => {
             <Banner />
           </View>
           <View style={{marginBottom: 17}}>
-            <Breadscrum title="Categories" />
+            <Breadscrum
+              title="Categories"
+              onPress={handleOnChangePageCategory}
+            />
           </View>
           <View style={{marginBottom: 32}}>
             <Category />

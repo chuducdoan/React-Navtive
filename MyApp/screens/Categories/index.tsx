@@ -1,7 +1,7 @@
-/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
+import {SafeAreaView, View, Text, Image} from 'react-native';
 import {styles} from './style';
 
 const VegetablesImage = require('../../assets/images/Vegetables.png');
@@ -50,32 +50,19 @@ const dataList = [
   },
 ];
 
-const Banner = () => {
-  const renderItem = ({item}: any) => {
-    return (
-      <View key={item.id}>
-        <View style={[{backgroundColor: item.color}, styles.image]}>
-          <Image source={item.url} />
-        </View>
-        <Text style={styles.text}>{item.title}</Text>
-      </View>
-    );
-  };
-
+const Categories = () => {
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={dataList}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        horizontal
-        pagingEnabled
-        snapToAlignment="center"
-        showsHorizontalScrollIndicator={false}
-        style={styles.content}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {dataList.map(item => (
+        <View key={item.id} style={styles.item}>
+          <View style={[{backgroundColor: item.color}, styles.image]}>
+            <Image source={item.url} />
+          </View>
+          <Text style={styles.text}>{item.title}</Text>
+        </View>
+      ))}
+    </SafeAreaView>
   );
 };
 
-export default Banner;
+export default Categories;
