@@ -39,7 +39,7 @@ const Login = () => {
             </View>
             <Text style={styles.remember}>Remember me</Text>
           </View>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.textForgotPass}>Forgot password</Text>
           </Pressable>
         </View>

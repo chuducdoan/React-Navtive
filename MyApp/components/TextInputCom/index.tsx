@@ -16,10 +16,11 @@ interface Props {
   placeholder?: string;
   secureTextEntry?: boolean;
   password?: any;
+  stylesCon?: any;
 }
 
 const TextInputCom = (props: Props) => {
-  const {icon, background = '#fff', password} = props;
+  const {icon, background = '#fff', password, stylesCon} = props;
   const [isShow, setIsShow] = useState(true);
 
   const stylesBG = StyleSheet.create({
@@ -29,7 +30,7 @@ const TextInputCom = (props: Props) => {
   });
 
   return (
-    <View style={[styles.container, stylesBG.bg]}>
+    <View style={[styles.container, stylesBG.bg, stylesCon]}>
       <View style={styles.icon}>
         <Image source={icon} />
       </View>

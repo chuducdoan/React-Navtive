@@ -79,6 +79,12 @@ const Home = () => {
     navigation.navigate('Category');
   };
 
+  const handleOnChangePageCategoryDetail = () => {
+    navigation.navigate('CategoryDetail', {
+      title: 'Featured Products',
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
@@ -87,7 +93,7 @@ const Home = () => {
         end={{x: 0, y: 1}}
         style={{flex: 1}}>
         <ScrollView style={styles.content}>
-          <Search />
+          <Search onFilter={() => navigation.navigate('Filter')} />
           <View style={{marginBottom: 20}}>
             <Banner />
           </View>
@@ -101,11 +107,14 @@ const Home = () => {
             <Category />
           </View>
           <View style={{marginBottom: 21}}>
-            <Breadscrum title="Featured products" />
+            <Breadscrum
+              title="Featured products"
+              onPress={handleOnChangePageCategoryDetail}
+            />
           </View>
           <View style={styles.productWrap}>
             {productList.map((item, index) => (
-              <View style={styles.productItem}>
+              <View style={styles.productItem} key={index}>
                 <ItemProduct
                   item={item}
                   key={item.id}

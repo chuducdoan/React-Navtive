@@ -12,12 +12,13 @@ interface Props {
   icon?: any;
   background?: any;
   last?: boolean;
+  style?: any;
 }
 
 const Button = (props: Props) => {
-  const {title, onPress, icon, background, last} = props;
+  const {title, onPress, icon, background, last, style} = props;
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} style={style}>
       <LinearGradient
         colors={[background ?? '#AEDC81', background ?? '#6CC51D']}
         style={styles.container}

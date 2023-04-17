@@ -1,8 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, Pressable} from 'react-native';
 import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 const VegetablesImage = require('../../assets/images/Vegetables.png');
 const FruitsImage = require('../../assets/images/Fruits.png');
@@ -51,15 +52,26 @@ const dataList = [
 ];
 
 const Categories = () => {
+  const navigation = useNavigation();
+
+  const handleOnPress = (title: any) => {
+    navigation.navigate('CategoryDetail', {
+      title,
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {dataList.map(item => (
-        <View key={item.id} style={styles.item}>
+        <Pressable
+          key={item.id}
+          style={styles.item}
+          onPress={() => handleOnPress(item.title)}>
           <View style={[{backgroundColor: item.color}, styles.image]}>
             <Image source={item.url} />
           </View>
           <Text style={styles.text}>{item.title}</Text>
-        </View>
+        </Pressable>
       ))}
     </SafeAreaView>
   );

@@ -28,7 +28,11 @@ const Welcome = () => {
             background={'#fff'}
           />
         </View>
-        <Button title={'Create an account'} icon={UserIcon} />
+        <Button
+          title={'Create an account'}
+          icon={UserIcon}
+          onPress={() => navigation.navigate('SignUp')}
+        />
       </>
     );
   };

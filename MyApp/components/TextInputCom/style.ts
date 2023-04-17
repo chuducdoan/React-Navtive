@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
 
   textInput: {
-    color: color.textGray,
+    color: color.textBlack,
     fontSize: fontSize.size15,
     fontWeight: '500',
     height: '100%',

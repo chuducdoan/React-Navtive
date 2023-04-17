@@ -14,7 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Header, HeaderSecondary, HeaderThirt} from './components';
+import {HeaderSecondary, HeaderThirt} from './components';
 import DefaultScreen from './screens/DefaultScreen';
 import Login from './screens/Login';
 import Root from './screens/Root';
@@ -25,21 +25,24 @@ import Detail from './screens/Detail';
 import Categories from './screens/Categories';
 import {Image, Pressable, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import CategorieDetail from './screens/CategorieDetail';
+import Cart from './screens/Cart';
+import Filter from './screens/Filter';
+import ForgotPassword from './screens/ForgotPassword';
+import VerifyNumber from './screens/VerifyNumber';
+import ShippingMethod from './screens/ShippingMethod';
 
 const BackArrowIcon = require('./assets/images/icons/backArrow.png');
+const BackArrowIcon2 = require('./assets/images/icons/backArrow2.png');
+const filterBlackIcon = require('./assets/images/icons/filterBlack.png');
+const ReloadIcon = require('./assets/images/icons/reload.png');
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Default"
-        // screenOptions={{
-        //   header: props => <Header {...props} />,
-        //   headerTransparent: true,
-        // }}
-      >
+      <Stack.Navigator initialRouteName="Default">
         <Stack.Screen
           name="Default"
           component={DefaultScreen}
@@ -63,6 +66,7 @@ const App = () => {
             headerStyle: {
               backgroundColor: 'transparent',
               elevation: 2,
+              shadowColor: 'red',
             },
             headerTitleStyle: {
               color: '#fff',
@@ -86,6 +90,8 @@ const App = () => {
             headerTransparent: true,
             headerStyle: {
               backgroundColor: 'transparent',
+              elevation: 2,
+              shadowColor: 'red',
             },
             headerTitleStyle: {
               color: '#fff',
@@ -108,6 +114,8 @@ const App = () => {
             headerTransparent: true,
             headerStyle: {
               backgroundColor: 'transparent',
+              elevation: 2,
+              shadowColor: 'red',
             },
             headerTitleStyle: {
               color: '#fff',
@@ -134,18 +142,142 @@ const App = () => {
           component={Detail}
           options={{
             title: '',
+            headerTransparent: true,
             header: props => <HeaderSecondary {...props} />,
           }}
         />
         <Stack.Screen
           name="Category"
           component={Categories}
-          options={{
+          options={({navigation}) => ({
             title: 'Categories',
-            header: props => <HeaderThirt {...props} />,
-            headerShown: true,
-            headerTransparent: false,
-          }}
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: '#fff',
+              height: 200,
+            },
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+            headerRight: () => (
+              <Pressable onPress={() => navigation.navigate('Filter')}>
+                <Image source={filterBlackIcon} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="CategoryDetail"
+          component={CategorieDetail}
+          options={({navigation, route}: any) => ({
+            title: route.params.title,
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: '#fff',
+              height: 200,
+            },
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+            headerRight: () => (
+              <Pressable onPress={() => navigation.navigate('Filter')}>
+                <Image source={filterBlackIcon} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={Cart}
+          options={({navigation}) => ({
+            title: 'Shopping Cart',
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: '#fff',
+              height: 200,
+            },
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={Filter}
+          options={({navigation}) => ({
+            title: 'Apply Filters',
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: '#fff',
+              height: 200,
+            },
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+            headerRight: () => (
+              <Pressable onPress={() => navigation.navigate('Filter')}>
+                <Image source={ReloadIcon} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={({navigation}) => ({
+            title: 'Password Recovery',
+            headerTitleAlign: 'center',
+            headerTransparent: true,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="VerifyNumber"
+          component={VerifyNumber}
+          options={({navigation}) => ({
+            title: 'Verify Number',
+            headerTitleAlign: 'center',
+            headerTransparent: true,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ShippingMethod"
+          component={ShippingMethod}
+          options={({navigation}) => ({
+            title: 'Shipping Method',
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: '#fff',
+              height: 200,
+            },
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Image source={BackArrowIcon2} />
+              </Pressable>
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

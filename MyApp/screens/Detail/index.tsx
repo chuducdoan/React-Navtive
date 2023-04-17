@@ -6,6 +6,7 @@ import {styles} from './style';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Button} from '../../components';
+import {useNavigation} from '@react-navigation/native';
 
 const ProductImage = require('../../assets/images/productImage.png');
 const CartIcon = require('../../assets/images/icons/cart.png');
@@ -15,6 +16,12 @@ interface Props {
 }
 
 const Detail = ({favorite}: Props) => {
+  const navigation = useNavigation();
+
+  const handleOnPress = () => {
+    navigation.navigate('Cart');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={ProductImage} />
@@ -95,7 +102,12 @@ const Detail = ({favorite}: Props) => {
             <AntDesign name="plus" color={'#6CC51D'} size={20} />
           </Pressable>
         </View>
-        <Button title={'Add to cart'} icon={CartIcon} last />
+        <Button
+          title={'Add to cart'}
+          icon={CartIcon}
+          last
+          onPress={handleOnPress}
+        />
       </View>
     </SafeAreaView>
   );
