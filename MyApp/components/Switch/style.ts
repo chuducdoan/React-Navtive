@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
   container: {
     width: 29,
     height: 18,
-
     borderWidth: 1,
     borderRadius: 100,
     position: 'relative',
@@ -22,7 +21,6 @@ export const styles = StyleSheet.create({
   around: {
     width: 16,
     height: 16,
-
     borderWidth: 1,
     borderRadius: 50,
     position: 'absolute',

@@ -1,16 +1,22 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {Button, Step} from '../../components';
 import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 const ShippingMethod = () => {
+  const [active, setActive] = useState(0);
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Step step={1} />
       <View style={styles.wrapDelivery}>
-        <View style={styles.box}>
+        <TouchableOpacity
+          style={[styles.box, active === 1 ? styles.boxActive : null]}
+          onPress={() => setActive(1)}>
           <View style={styles.boxLeft}>
             <Text style={styles.title}>Standard Delivery</Text>
             <Text style={styles.desc}>
@@ -21,8 +27,10 @@ const ShippingMethod = () => {
           <View style={styles.boxRight}>
             <Text style={styles.price}>$3</Text>
           </View>
-        </View>
-        <View style={styles.box}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.box, active === 2 ? styles.boxActive : null]}
+          onPress={() => setActive(2)}>
           <View style={styles.boxLeft}>
             <Text style={styles.title}>Next Day Delivery</Text>
             <Text style={styles.desc}>
@@ -33,8 +41,10 @@ const ShippingMethod = () => {
           <View style={styles.boxRight}>
             <Text style={styles.price}>$3</Text>
           </View>
-        </View>
-        <View style={styles.box}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.box, active === 3 ? styles.boxActive : null]}
+          onPress={() => setActive(3)}>
           <View style={styles.boxLeft}>
             <Text style={styles.title}>Nominated Delivery</Text>
             <Text style={styles.desc}>
@@ -45,9 +55,13 @@ const ShippingMethod = () => {
           <View style={styles.boxRight}>
             <Text style={styles.price}>$3</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
-      <Button title={'Next'} style={{width: '100%'}} />
+      <Button
+        title={'Next'}
+        style={{width: '100%'}}
+        onPress={() => navigation.navigate('ShippingAddress')}
+      />
     </View>
   );
 };

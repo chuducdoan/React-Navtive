@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 39,
   },
   wrapDelivery: {
-    marginTop: 52,
+    marginTop: 42,
     flex: 1,
   },
   box: {
@@ -23,6 +23,11 @@ export const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 18,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: color.bgWhite,
+  },
+  boxActive: {
+    borderColor: color.primaryDark,
   },
   boxLeft: {
     width: '90%',

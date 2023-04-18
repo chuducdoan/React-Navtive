@@ -3,12 +3,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import {styles} from './style';
 
 interface Props {
   step?: number;
 }
+
+const CheckIcon = require('../../assets/images/icons/check.png');
 
 const Step = (props: Props) => {
   const {step = 1} = props;
@@ -22,13 +24,18 @@ const Step = (props: Props) => {
               styles.step,
               step >= 1 ? styles.stepActive : styles.stepNormal,
             ]}>
-            <Text
-              style={[
-                styles.numberStep,
-                step >= 1 ? styles.numberActive : styles.numberNormal,
-              ]}>
-              1
-            </Text>
+            {step > 1 ? (
+              <Image source={CheckIcon} />
+            ) : (
+              <Text
+                style={[
+                  styles.numberStep,
+                  step >= 1 ? styles.numberActive : styles.numberNormal,
+                ]}>
+                1
+              </Text>
+            )}
+
             <View
               style={[
                 styles.line,
@@ -43,13 +50,17 @@ const Step = (props: Props) => {
               styles.step,
               step >= 2 ? styles.stepActive : styles.stepNormal,
             ]}>
-            <Text
-              style={[
-                styles.numberStep,
-                step >= 2 ? styles.numberActive : styles.numberNormal,
-              ]}>
-              2
-            </Text>
+            {step > 2 ? (
+              <Image source={CheckIcon} />
+            ) : (
+              <Text
+                style={[
+                  styles.numberStep,
+                  step >= 2 ? styles.numberActive : styles.numberNormal,
+                ]}>
+                2
+              </Text>
+            )}
             <View
               style={[
                 styles.line,
@@ -64,13 +75,17 @@ const Step = (props: Props) => {
               styles.step,
               step >= 3 ? styles.stepActive : styles.stepNormal,
             ]}>
-            <Text
-              style={[
-                styles.numberStep,
-                step >= 3 ? styles.numberActive : styles.numberNormal,
-              ]}>
-              3
-            </Text>
+            {step > 3 ? (
+              <Image source={CheckIcon} />
+            ) : (
+              <Text
+                style={[
+                  styles.numberStep,
+                  step >= 3 ? styles.numberActive : styles.numberNormal,
+                ]}>
+                3
+              </Text>
+            )}
           </View>
           <Text style={styles.textStep}>PAYMENT</Text>
         </View>
