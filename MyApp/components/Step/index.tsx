@@ -7,13 +7,14 @@ import {Text, View, Image} from 'react-native';
 import {styles} from './style';
 
 interface Props {
-  step?: number;
+  step: number;
 }
 
 const CheckIcon = require('../../assets/images/icons/check.png');
 
 const Step = (props: Props) => {
-  const {step = 1} = props;
+  const {step} = props;
+  console.log(step);
 
   return (
     <View style={styles.container}>

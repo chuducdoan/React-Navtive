@@ -9,15 +9,22 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     height: 60,
     flexDirection: 'row',
+    backgroundColor: color.bgWhite,
   },
 
-  textInput: {
+  textValue: {
     color: color.textBlack,
     fontSize: fontSize.size15,
     fontWeight: '500',
-    height: '100%',
-    flex: 1,
-    paddingRight: 16,
+    alignSelf: 'center',
+    paddingLeft: 5,
+  },
+  textPlaceHolder: {
+    color: color.textGray,
+    fontSize: fontSize.size15,
+    fontWeight: '500',
+    alignSelf: 'center',
+    paddingLeft: 5,
   },
   icon: {
     alignItems: 'center',

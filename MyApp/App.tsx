@@ -33,6 +33,9 @@ import VerifyNumber from './screens/VerifyNumber';
 import ShippingMethod from './screens/ShippingMethod';
 import ShippingAddress from './screens/ShippingAddress';
 import {Provider as PaperProvider} from 'react-native-paper';
+import PaymentMethod from './screens/PaymentMethod';
+import OrderSuccess from './screens/OrderSuccess';
+import TrackOrder from './screens/TrackOrder';
 
 const BackArrowIcon = require('./assets/images/icons/backArrow.png');
 const BackArrowIcon2 = require('./assets/images/icons/backArrow2.png');
@@ -287,6 +290,60 @@ const App = () => {
             component={ShippingAddress}
             options={({navigation}) => ({
               title: 'Shipping Address',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: '#fff',
+                height: 200,
+              },
+              headerLeft: () => (
+                <Pressable onPress={() => navigation.goBack()}>
+                  <Image source={BackArrowIcon2} />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="PaymentMethod"
+            component={PaymentMethod}
+            options={({navigation}) => ({
+              title: 'Payment Method',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: '#fff',
+                height: 200,
+              },
+              headerLeft: () => (
+                <Pressable onPress={() => navigation.goBack()}>
+                  <Image source={BackArrowIcon2} />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="OrderSuccess"
+            component={OrderSuccess}
+            options={({navigation}) => ({
+              title: 'Order Success',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: '#fff',
+                height: 200,
+              },
+              headerLeft: () => (
+                <Pressable onPress={() => navigation.goBack()}>
+                  <Image source={BackArrowIcon2} />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="TrackOrder"
+            component={TrackOrder}
+            options={({navigation}) => ({
+              title: 'Track Order',
               headerTitleAlign: 'center',
               headerShadowVisible: false,
               headerStyle: {

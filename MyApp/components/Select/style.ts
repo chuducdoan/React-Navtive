@@ -31,11 +31,28 @@ export const styles = StyleSheet.create({
     backgroundColor: color.bgWhite,
     paddingHorizontal: 17,
     paddingTop: 20,
+    paddingBottom: 40,
   },
   record: {
     width: '100%',
     borderBottomWidth: 1,
     borderBottomColor: color.border,
     paddingVertical: 8,
+    alignItems: 'center',
+  },
+  noBorder: {
+    borderBottomWidth: 0,
+  },
+  textItem: {
+    fontSize: fontSize.size15,
+    fontWeight: fontWeight.wight500,
+    color: color.textGray,
+  },
+  values: {
+    color: color.textBlack,
+  },
+  active: {
+    color: color.textBlack,
+    fontWeight: fontWeight.wight600,
   },
 });

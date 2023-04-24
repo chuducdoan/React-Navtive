@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {Button, Select, Step, Switch, TextInputCom} from '../../components';
 import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 const UserIcon = require('../../assets/images/icons/user-black.png');
 const MailIcon = require('../../assets/images/icons/mail.png');
@@ -11,13 +12,13 @@ const TelephoneIcon = require('../../assets/images/icons/telephone.png');
 const AddressIcon = require('../../assets/images/icons/address.png');
 const ZipcodeIcon = require('../../assets/images/icons/zip-code.png');
 const CityIcon = require('../../assets/images/icons/city.png');
-const CountryIcon = require('../../assets/images/icons/country.png');
 
 const ShippingAddress = () => {
   const [isSave, setIsSave] = useState(true);
+  const navigation = useNavigation();
 
   return (
-    <ScrollView style={{backgroundColor: 'red'}}>
+    <ScrollView>
       <View style={styles.container}>
         <Step step={2} />
         <View style={styles.wrapDelivery}>
@@ -51,13 +52,17 @@ const ShippingAddress = () => {
             placeholder="City"
             icon={CityIcon}
           />
-          <Select />
+          <Select placeholder={'Country'} />
         </View>
         <View style={styles.wrapSaveAddress}>
           <Switch value={isSave} onValueChange={setIsSave} />
           <Text style={styles.saveAddress}>Save this address</Text>
         </View>
-        <Button title={'Next'} style={styles.btn} />
+        <Button
+          title={'Next'}
+          style={styles.btn}
+          onPress={() => navigation.navigate('PaymentMethod')}
+        />
       </View>
     </ScrollView>
   );

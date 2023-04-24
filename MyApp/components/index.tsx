@@ -11,3 +11,4 @@ export {default as Switch} from './Switch';
 export {default as TextInputCom} from './TextInputCom';
 export {default as Step} from './Step';
 export {default as Select} from './Select';
+export {default as DatePicker} from './DatePicker';

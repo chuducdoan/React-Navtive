@@ -17,6 +17,10 @@ interface Props {
   secureTextEntry?: boolean;
   password?: any;
   stylesCon?: any;
+  keyboardType?: any;
+  onChangeText?: any;
+  value?: any;
+  maxLength?: any;
 }
 
 const TextInputCom = (props: Props) => {
