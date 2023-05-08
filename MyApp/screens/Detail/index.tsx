@@ -44,7 +44,9 @@ const Detail = ({favorite}: Props) => {
         <Text style={styles.price}>$2.22</Text>
         <Text style={styles.name}>Organic Lemons</Text>
         <Text style={styles.unit}>1.50 lbs</Text>
-        <View style={styles.review}>
+        <Pressable
+          style={styles.review}
+          onPress={() => navigation.navigate('Reviews')}>
           <Text style={styles.numberStart}>4.5</Text>
           <View style={styles.starReview}>
             <FontAwesome
@@ -79,7 +81,7 @@ const Detail = ({favorite}: Props) => {
             />
           </View>
           <Text style={styles.countReview}>(89 reviews)</Text>
-        </View>
+        </Pressable>
         <View style={styles.desc}>
           <Text style={styles.unit}>
             Organic Mountain works as a seller for many organic growers of

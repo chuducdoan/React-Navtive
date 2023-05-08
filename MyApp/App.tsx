@@ -36,6 +36,9 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import PaymentMethod from './screens/PaymentMethod';
 import OrderSuccess from './screens/OrderSuccess';
 import TrackOrder from './screens/TrackOrder';
+import Reviews from './screens/Reviews';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import WriteReviews from './screens/WriteReviews';
 
 const BackArrowIcon = require('./assets/images/icons/backArrow.png');
 const BackArrowIcon2 = require('./assets/images/icons/backArrow2.png');
@@ -48,7 +51,7 @@ const App = () => {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="ShippingMethod">
+        <Stack.Navigator initialRouteName="Detail">
           <Stack.Screen
             name="Default"
             component={DefaultScreen}
@@ -344,6 +347,47 @@ const App = () => {
             component={TrackOrder}
             options={({navigation}) => ({
               title: 'Track Order',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: '#fff',
+                height: 200,
+              },
+              headerLeft: () => (
+                <Pressable onPress={() => navigation.goBack()}>
+                  <Image source={BackArrowIcon2} />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="Reviews"
+            component={Reviews}
+            options={({navigation}) => ({
+              title: 'Reviews',
+              headerTitleAlign: 'center',
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: '#fff',
+                height: 200,
+              },
+              headerLeft: () => (
+                <Pressable onPress={() => navigation.goBack()}>
+                  <Image source={BackArrowIcon2} />
+                </Pressable>
+              ),
+              headerRight: () => (
+                <Pressable onPress={() => navigation.navigate('WriteReviews')}>
+                  <AntDesign name="pluscircleo" size={20} />
+                </Pressable>
+              ),
+            })}
+          />
+          <Stack.Screen
+            name="WriteReviews"
+            component={WriteReviews}
+            options={({navigation}) => ({
+              title: 'Write Reviews',
               headerTitleAlign: 'center',
               headerShadowVisible: false,
               headerStyle: {

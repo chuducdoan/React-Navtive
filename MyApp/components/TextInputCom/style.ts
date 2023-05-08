@@ -29,4 +29,9 @@ export const styles = StyleSheet.create({
     width: 70,
     justifyContent: 'center',
   },
+  pencil: {
+    position: 'absolute',
+    top: 24,
+    left: 18,
+  },
 });

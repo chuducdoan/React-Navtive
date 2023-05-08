@@ -13,7 +13,7 @@ interface Props {
   onPress?: any;
   icon?: any;
   background?: any;
-  placeholder?: string;
+  placeholder?: any;
   secureTextEntry?: boolean;
   password?: any;
   stylesCon?: any;
@@ -21,10 +21,13 @@ interface Props {
   onChangeText?: any;
   value?: any;
   maxLength?: any;
+  multiline?: boolean;
+  numberOfLines?: number;
+  iconTextarea?: any;
 }
 
 const TextInputCom = (props: Props) => {
-  const {icon, background = '#fff', password, stylesCon} = props;
+  const {icon, background = '#fff', password, stylesCon, iconTextarea} = props;
   const [isShow, setIsShow] = useState(true);
 
   const stylesBG = StyleSheet.create({
@@ -35,11 +38,14 @@ const TextInputCom = (props: Props) => {
 
   return (
     <View style={[styles.container, stylesBG.bg, stylesCon]}>
-      <View style={styles.icon}>
-        <Image source={icon} />
-      </View>
+      <Image source={iconTextarea} style={styles.pencil} />
+      {icon && (
+        <View style={styles.icon}>
+          <Image source={icon} />
+        </View>
+      )}
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput]}
         {...props}
         secureTextEntry={password && isShow}
       />
